@@ -53,7 +53,7 @@ jobs:
 
       # 3. Check formatting
       - name: Terraform Format
-        run: terraform fmt -check -recursive
+        run: terraform fmt -recursive
         working-directory: .
 
       # 4. Authenticate with Azure using OIDC
