@@ -46,9 +46,9 @@ module "nsg" {
 
 }
 
-module "vms" {
-  depends_on = [module.nic]
-  source     = "../../module/azurerm_virtual_machin"
-  vms        = var.vms
+#module "vms" {
+  #depends_on = [module.nic]
+ # source     = "../../module/azurerm_virtual_machin"
+ # vms        = var.vms
 
-}
+#}
