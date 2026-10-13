@@ -51,12 +51,7 @@ jobs:
         with:
           terraform_version: "1.9.8"
 
-      # 3. Check formatting
-      - name: Terraform Format
-        run: terraform fmt
-        working-directory: .
-
-      # 4. Authenticate with Azure using OIDC
+      # 3. Authenticate with Azure using OIDC
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -64,9 +59,14 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      # 5. Initialize Terraform
+      # 4. Initialize Terraform
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init
+
+
+      # 5. Check formatting
+      - name: Terraform Format
+        run: terraform fmt
 
       # 6. Validate Terraform configuration
       - name: Terraform Validate
